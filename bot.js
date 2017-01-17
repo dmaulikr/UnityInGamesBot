@@ -5,7 +5,7 @@ console.log("-bot: Loading Auth File");
 const AuthFile = require("./configure/auth.json");
 
 QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The heroes will always be remembered. The best. The best and the worst. And a few who were a bit of both.",
-    "Knighthood lies above eternity; it doesn’t live off fame, but rather deeds.",
+    "Knighthood lies above eternity, it doesn’t live off fame, but rather deeds.",
     "A great battle is a terrible thing, but in the midst of blood and carnage, there is sometimes also beauty, beauty that could break your heart.",
     "I have seen too many men go down, and I never permit myself to forget that one day, through accident or under the charge of a younger, stronger knight, I too will go down.",
     "I'd rather have a heart of gold\nThan all the treasure of the world.",
@@ -14,31 +14,59 @@ QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The her
     "The warrior guided by the spirit serves humanity, the warrior without, serves the ego"
 ];
 
-QuoteSamurai = ["Insert long sentance containing Ying and Yang",
-    "Insert a comment about wind",
-    "Insert a comment about flowing water",
-    "Insert something about a lion",
-    "Insert something to do with the sun",
-    "Insert some kind of quote about a feather",
-    "Insert something that contains \"strike fast\"",
-    "Insert a quote about peace",
-    "Insert a piece about harmony",
-    "Something, something wind... Something, something leaf."
+QuoteSamurai = ["You can always die. It's living that takes real courage.",
+    "No matter how much you hate or how much you suffer, you can't bring the dead back to life",
+    "A man who can't uphold his beliefs is pathetic dead or alive",
+    "A warrior is worthless unless he rises above others and stands strong in the midst of a storm.",
+    "Fast as wind, quiet as a forest, aggressive as fire and immovable as a montain.",
+    "Don't fear death. Fear the un-lived life.",
+    "Bowing is an expression of gratitude and respect. in effect, you are thanking your opponent for giving you the opportunity to improve your technique.",
+    "Calm, but alert! Relaxed, but ready! Smooth, but sharp! humble, but confident!",
+    "Those who are skilled in combat do not become angered, those who are skilled at winning do not become afraid. Thus the wise win before the fight, while the ignorant fight to win.",
+    "He who conquers others is strong. He who conquers himself is mighty."
 ]
 
-QuoteVikings = ["",
+QuoteVikings = [
     "Lo, they do call to me.\nThey bid me take my place among them,\nIn the halls of Valhalla!\nWhere the brave may live forever!",
-    "I require more quotes..."
+    "Wear your scars wtih pride...\n for a scar-less man has not felt the hardship of life or the feeling of pain.",
+    "It is better to stand and fight.\n If you run, you'll only die tired.",
+    "Stand up for what you believe in...\neven if you stand alone.",
+    "I came into this world kicking and screaming while covered in someone else's blood. I have no problem with going out the same way.",
+    "Here's to cheating, stealing, fighting and drinking!\nIf you cheat, may you cheat death!\nIf you steal, may you steal a woman's heart!\nIf you fight, may you fight for a brother!\nIf you drink, may you drink with me.",
+    "Power is only given to those who are prepared to lower themselves to pick it up.",
+    "I offended you?\nWhat does it feel like to be so weak that mere words hurt you?",
+    "He who lives without discipline, dies without honor.",
+    "Make no mistake! The beast inside is sleeping, not dead."
 ]
-
-UnityBot.on("guildCreate", function (guild) {
-});
 
 UnityBot.on("message", function (message) {
 
     if (message.author.bot) return;
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
+
+    msg = message.content.split(" ").slice(1).join(" ").trim();
+
+    if (cmd == "roleid" && message.author.id == AuthFile.botinfo.owner) {
+        if (msg === undefined) {
+            message.channel.sendMessage("No role specified?");
+            return;
+        }
+        let TRole = message.guild.roles.find("name", msg);
+        if (TRole === null) {
+            message.channel.sendMessage("Role could not be found?");
+            return;
+        }
+        message.channel.sendMessage(`**Role Name:** ${TRole.name} **Role ID:** ${TRole.id}`);
+    }
+
+
+
+
+
+
+
+    //Lower case
     msg = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
 
     if (message.content.startsWith(">")) {
@@ -171,15 +199,16 @@ UnityBot.on("message", function (message) {
     }
 
     if (cmd === "knights" || cmd === "knight") {
-        let RNumb = Math.floor((Math.random() * QuoteKnights.length) + 1) - 1;
+        let RNumb = Math.floor((Math.random() * QuoteKnights.length));
         message.channel.sendMessage(QuoteKnights[RNumb]);
     }
     if (cmd === "samurai") {
-        let RNumb = Math.floor((Math.random() * QuoteSamurai.length) + 1) - 1;
+        let RNumb = Math.floor((Math.random() * QuoteSamurai.length));
         message.channel.sendMessage(QuoteSamurai[RNumb]);
+        console.log(RNumb);
     }
     if (cmd === "viking" || cmd === "vikings") {
-        let RNumb = Math.floor((Math.random() * QuoteVikings.length) + 1) - 1;
+        let RNumb = Math.floor((Math.random() * QuoteVikings.length));
         message.channel.sendMessage(QuoteVikings[RNumb]);
     }
 
@@ -206,7 +235,7 @@ UnityBot.on("message", function (message) {
         }
     }
 
-    if (cmd == "assign" && message.author.id == "130329656476827648")
+    if (cmd == "assign" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))
     {
         MSplit = msg.split(" ");
         message.guild.member(message.mentions.users.first()).addRole(MSplit[1]);
@@ -255,19 +284,6 @@ UnityBot.on("message", function (message) {
         else {
             message.reply("you need to request one of the three factions (Vikings, Knights, Samurai)")
         }
-    }
-
-    if (cmd == "roleid" && message.author.id == AuthFile.botinfo.owner) {
-        if (msg === undefined) {
-            message.channel.sendMessage("No role specified?");
-            return;
-        }
-        let TRole = message.guild.roles.find("name", msg);
-        if (TRole === null) {
-            message.channel.sendMessage("Role could not be found?");
-            return;
-        }
-        message.channel.sendMessage(`**Role Name:** ${TRole.name} **Role ID:** ${TRole.id}`);
     }
 })
 
