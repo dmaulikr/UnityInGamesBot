@@ -4,6 +4,8 @@ var UnityBot = new Discord.Client();
 console.log("-bot: Loading Auth File");
 const AuthFile = require("./configure/auth.json");
 
+var BotActive = true;
+
 QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The heroes will always be remembered. The best. The best and the worst. And a few who were a bit of both.",
     "Knighthood lies above eternity, it doesn’t live off fame, but rather deeds.",
     "A great battle is a terrible thing, but in the midst of blood and carnage, there is sometimes also beauty, beauty that could break your heart.",
@@ -41,11 +43,24 @@ QuoteVikings = [
 
 UnityBot.on("message", function (message) {
 
+    if (BotActive === false) return message.reply("Functions are currently offline (Update in progress?)");
+
     if (message.author.bot) return;
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
 
     msg = message.content.split(" ").slice(1).join(" ").trim();
+    msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
+
+
+    if (cmd == "update" && message.author.id == "130329656476827648") {
+        message.delete().then(message.channel.sendMessage("**Updating**"))
+        BotActive = false;
+    }
+    if (cmd == "activate" && message.author.id == "130329656476827648") {
+        message.delete().then(message.channel.sendMessage("**Functions Enabled**"))
+        BotActive = true;
+    }
 
     if (cmd == "roleid" && message.author.id == AuthFile.botinfo.owner) {
         if (msg === undefined) {
@@ -60,24 +75,15 @@ UnityBot.on("message", function (message) {
         message.channel.sendMessage(`**Role Name:** ${TRole.name} **Role ID:** ${TRole.id}`);
     }
 
-
-
-
-
-
-
-    //Lower case
-    msg = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
-
     if (message.content.startsWith(">")) {
         if (message.channel.id !== "266645102418591745") return;
         if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msg)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
         if (cmd = "rank" && ["viking", "knight"].includes(msg)) {
             message.reply("\">role\" Is outdated but I will process this request for you! in the future please use \"!faction\"");
-            if (msg = "knight") message.content = "!faction knight";
-            if (msg = "viking") message.content = "!faction viking";
+            if (msgl = "knight") message.content = "!faction knight";
+            if (msgl = "viking") message.content = "!faction viking";
         }
-        if (cmd = "rank" && ["pc", "ps4", "xbox"].includes(msg)) return message.reply("Have you thought about using \"!platform\" instead?");
+        if (cmd = "rank" && ["pc", "ps4", "xbox"].includes(msgl)) return message.reply("Have you thought about using \"!platform\" instead?");
     }
 
     if (!message.content.startsWith("!")) return;
@@ -140,87 +146,87 @@ UnityBot.on("message", function (message) {
     if (cmd == "guide" || cmd == "guides") {
         if (message.channel.id == "254691230569463809") {
             if (msg == "") return message.reply("sujet?");
-            if (["raider", "raiders"].includes(msg)) {
+            if (["raider", "raiders"].includes(msgl)) {
                 message.channel.sendMessage("Raider guide\nhttp://forums-fr.ubi.com/showthread.php/107610-Hall-of-Heroes-guide-du-Hersir")
             }
-            if (["kensei", "kenseis"].includes(msg)) {
+            if (["kensei", "kenseis"].includes(msgl)) {
                 message.channel.sendMessage("Kensei guide\nhttp://forums-fr.ubi.com/showthread.php/107417-Hall-of-Heroes-guide-du-Kensei")
             }
-            if (["warden", "wardens"].includes(msg)) {
+            if (["warden", "wardens"].includes(msgl)) {
                 message.channel.sendMessage("Warden guide\nhttp://forums-fr.ubi.com/showthread.php/107354-Hall-of-Heroes-guide-de-la-Sentinelle")
             }
         }
         if (msg == "") return message.reply("No subject was provided?");
-        if (["raider", "raiders"].includes(msg)) {
+        if (["raider", "raiders"].includes(msgl)) {
             message.channel.sendMessage("__**Raider guide**__\n<http://forums.ubi.com/showthread.php/1499952>")
         }
-        if (["feint", "feints", "feinting"].includes(msg)) {
+        if (["feint", "feints", "feinting"].includes(msgl)) {
             message.channel.sendMessage("__**Feint Guide**__\n<http://forums.ubi.com/showthread.php/1504115>")
         }
-        if (["warlord", "warlords"].includes(msg)) {
+        if (["warlord", "warlords"].includes(msgl)) {
             message.channel.sendMessage("__**Warlord Guide**__\n<http://forums.ubi.com/showthread.php/1546959>")
         }
-        if (["dominion"].includes(msg)) {
+        if (["dominion"].includes(msgl)) {
             message.channel.sendMessage("__**Dominion Guide**__\n<http://forums.ubi.com/showthread.php/1526800>")
         }
-        if (["shugoki"].includes(msg)) {
+        if (["shugoki"].includes(msgl)) {
             message.channel.sendMessage("__**Shugoki Guide**__\n<http://forums.ubi.com/showthread.php/1534046>")
         }
-        if (["kensei"].includes(msg)) {
+        if (["kensei"].includes(msgl)) {
             message.channel.sendMessage("__**Kensei Guide**__\n<http://forums.ubi.com/showthread.php/1491253>")
         }
-        if (["faction war","faction wars"].includes(msg)) {
+        if (["faction war","faction wars"].includes(msgl)) {
             message.channel.sendMessage("__**Faction wars Guide\n<http://forums.ubi.com/showthread.php/1534055>")
         }
-        if (["warden","wardens"].includes(msg)) {
+        if (["warden","wardens"].includes(msgl)) {
             message.channel.sendMessage("__**Warden Guide**__\n**Basics** <http://forums.ubi.com/showthread.php/1487785>\n**Advanced** <http://forums.ubi.com/showthread.php/1526129>")
         }
-        if (["orochi"].includes(msg)) {
+        if (["orochi"].includes(msgl)) {
             message.channel.sendMessage("__**Orochi Guide**__\n<http://forums.ubi.com/showthread.php/1509277>")
         }
     }
     if (cmd == "info") {
         console.log("Info ran")
-        if (["peacekeeper", "peacekeepers", "class peacekeeper", "class peacekeepers"].includes(msg)) {
+        if (["peacekeeper", "peacekeepers", "class peacekeeper", "class peacekeepers"].includes(msgl)) {
             message.channel.sendMessage("*Peacekeeper*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range, High Mobility\nVery fast attacks. Use dagger to cancel or confirm attacks into bleed damage and a deflect ability");
         }
-        if (["conqueror", "conquerors", "class conqueror", "class conquerors"].includes(msg)) {
+        if (["conqueror", "conquerors", "class conqueror", "class conquerors"].includes(msgl)) {
             message.channel.sendMessage("*Conqueror*\n**Difficulty**: Medium\n**Fighting Style** Defensive\nAuto Blocking Defense Mode\nInterrupts attacks with standard block. Highly effective defensive mode and unblockable shield based attacks.");
         }
-        if (["warden", "wardens", "class warden", "class wardens"].includes(msg)) {
+        if (["warden", "wardens", "class warden", "class wardens"].includes(msgl)) {
             message.channel.sendMessage("*Warden*\n**Difficulty**: Easy\n**Fighting Style** Adaptable\nStrait Forward Strategy\nUnblockable shoulder bash attacks and strong interruption abilities and throws.");
         }
 
-        if (["orochi", "orochies", "class orochi", "class orochies"].includes(msg)) {
+        if (["orochi", "orochies", "class orochi", "class orochies"].includes(msgl)) {
             message.channel.sendMessage("*Orochi*\n**Difficulty**: Hard\n**Fighting Style** Assassin\nCounter Attacker\nVery fast light attacks. Can dodge into faster attacks and has deflect abilities");
         }
-        if (["shugoki", "shugokis", "class shugoki", "class shugokis"].includes(msg)) {
+        if (["shugoki", "shugokis", "class shugoki", "class shugokis"].includes(msgl)) {
             message.channel.sendMessage("*Shugoki*\n**Difficulty**: Easy\n**Fighting Style** Disabler\nHard Hitter\nPassive uninterruptible stance. Charging heavy attacks and light attacks can't be interrupted");
         }
-        if (["kensei", "kenseis", "class kensei", "class kenseis"].includes(msg)) {
+        if (["kensei", "kenseis", "class kensei", "class kenseis"].includes(msgl)) {
             message.channel.sendMessage("*Kensei*\n**Difficulty**: Medium\n**Fighting Style** Adaptable\nGood Melee Range\nHigh heavy attacks are unblockable. Has many maneuvers and attacks initate chain attacks.");
         }
 
-        if (["berserker", "berserkers", "class berserker", "class berserkers"].includes(msg)) {
+        if (["berserker", "berserkers", "class berserker", "class berserkers"].includes(msgl)) {
             message.channel.sendMessage("*Berserker*\n**Difficulty**: Hard\n**Fighting Style** Harasser\nShort Ranged Fast Attacks\nSome attacks can hit multiple targets in a row. Charging attacks to harass opponents and a deflect ability.");
         }
-        if (["warlord", "warlords", "class warlord", "class warlords"].includes(msg)) {
+        if (["warlord", "warlords", "class warlord", "class warlords"].includes(msgl)) {
             message.channel.sendMessage("*Warlord*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range\nDefensive properties on light and heavy attacks. A defensive mode and an unblockable headbutt.");
         }
-        if (["raider", "raiders", "class raider", "class raiders"].includes(msg)) {
+        if (["raider", "raiders", "class raider", "class raiders"].includes(msgl)) {
             message.channel.sendMessage("*Raider*\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks\n");
         }
 
-        if (["change faction", "faction change", "test thing"].includes(msg)) {
+        if (["change faction", "faction change", "test thing"].includes(msgl)) {
             message.channel.sendMessage("You are able to change your faction allegiance at any time but doing so during a season will disqualify you from any rewards.");
         }
-        if (["knights", "the knights", "faction knights"].includes(msg)) {
+        if (["knights", "the knights", "faction knights"].includes(msgl)) {
             message.channel.sendMessage("Sent by the iron legions with the object to pacify the land. Knights have acquired the taste of freedom and made ashfeld their home. They believe that the ancient ruins covering their lands were build by the great empire, the precursor of the iron legion.\n\nDisorganized for centuries, ashfeld's knights have mostly been a collection of petty warlords and bands of roving mercenary knights. The last decade however, the knights have corralled under a single banner, ofter at sword point, by Ashfeld's Blackston Legion, led by Apollyon.\n\nSo far, the Knights have managed to defend ashfeld from viking and samurai attacks. Apollyon argues that a threat of war is imminent and tells stragglers that joining her legion is the only guarantee they will hold onto their landss.");
         }
-        if (["samurai", "the samurai", "faction samurai"].includes(msg)) {
+        if (["samurai", "the samurai", "faction samurai"].includes(msgl)) {
             message.channel.sendMessage("Originally from a land far away across the seas, the samurai tell a tale of an Emperor and a homeland lost to sea and fire. Nearly a millennium later, the nomadic nation has ceased its wandering and build a new empire near the reclaimed homelands of the vikings and the contested lands of the knights.\n\nHaving spent the last decades acclimating to the marshy hills known as the Myre, they flourish but remain vastly outnumbered by their neighbors. They have to rely on greater marial skill, cunning, and devotion to their culture in order to survive... For they may be the last of their kind.");
         }
-        if (["vikings", "the vikings", "faction vikings"].includes(msg)) {
+        if (["vikings", "the vikings", "faction vikings"].includes(msgl)) {
             message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across teh sea to where they have established a new homeland. They returned for mayn reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
         }
         if (msg === "losers") {
@@ -247,10 +253,10 @@ UnityBot.on("message", function (message) {
         let pcID = "269324174344847361";
         let ps4ID = "269324186042892289";
         let xboxID = "269324137778905088";
-        if (msg === "pc") roleID = pcID, roleName = "PC";
-        if (msg === "xbox") roleID = xboxID, roleName = "Xbox";
-        if (msg === "ps4") roleID = ps4ID, roleName = "PS4";
-        if (msg === "pc" || msg === "xbox" || msg === "ps4") {
+        if (msgl === "pc") roleID = pcID, roleName = "PC";
+        if (msgl === "xbox") roleID = xboxID, roleName = "Xbox";
+        if (msgl === "ps4") roleID = ps4ID, roleName = "PS4";
+        if (msgl === "pc" || msgl === "xbox" || msgl === "ps4") {
             if (message.member.roles.has(roleID)) {
                 message.guild.member(message.author.id).removeRole(roleID);
                 message.reply(`Removed ${roleName}`);
@@ -288,9 +294,9 @@ UnityBot.on("message", function (message) {
             let CurFaction = null;
             let NewFaction = null;
             let NewName = null;
-            if (["vikings", "viking"].includes(msg)) NewFaction = VikingsID, NewName = "Vikings";
-            if (["knights", "knight"].includes(msg)) NewFaction = KnightsID, NewName = "Knights";
-            if (msg == "samurai") NewFaction = SamuraiID, NewName = "Samurai";
+            if (["vikings", "viking"].includes(msgl)) NewFaction = VikingsID, NewName = "Vikings";
+            if (["knights", "knight"].includes(msgl)) NewFaction = KnightsID, NewName = "Knights";
+            if (msgl == "samurai") NewFaction = SamuraiID, NewName = "Samurai";
             if (message.member.roles.has(NewFaction)) return message.reply("Looks like somebody is having an identity crisis.");
 
             if (message.member.roles.has(KnightsID)) {
