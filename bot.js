@@ -43,8 +43,6 @@ QuoteVikings = [
 
 UnityBot.on("message", function (message) {
 
-    if (BotActive === false) return message.reply("Functions are currently offline (Update in progress?)");
-
     if (message.author.bot) return;
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
@@ -62,6 +60,22 @@ UnityBot.on("message", function (message) {
         BotActive = true;
     }
 
+    if (message.content.startsWith(">")) {
+        if (BotActive === false) return;
+        if (message.channel.id !== "266645102418591745") return;
+        if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msg)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
+        if (cmd = "rank" && ["viking", "knight"].includes(msg)) {
+            message.reply("\">role\" Is outdated but I will process this request for you! in the future please use \"!faction\"");
+            if (msgl = "knight") message.content = "!faction knight";
+            if (msgl = "viking") message.content = "!faction viking";
+        }
+        if (cmd = "rank" && ["pc", "ps4", "xbox"].includes(msgl)) return message.reply("Have you thought about using \"!platform\" instead?");
+    }
+
+    if (!message.content.startsWith("!")) return;
+
+    if (BotActive === false) return message.reply("Functions are currently offline (Update in progress?)");
+
     if (cmd == "roleid" && message.author.id == AuthFile.botinfo.owner) {
         if (msg === undefined) {
             message.channel.sendMessage("No role specified?");
@@ -75,18 +89,6 @@ UnityBot.on("message", function (message) {
         message.channel.sendMessage(`**Role Name:** ${TRole.name} **Role ID:** ${TRole.id}`);
     }
 
-    if (message.content.startsWith(">")) {
-        if (message.channel.id !== "266645102418591745") return;
-        if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msg)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
-        if (cmd = "rank" && ["viking", "knight"].includes(msg)) {
-            message.reply("\">role\" Is outdated but I will process this request for you! in the future please use \"!faction\"");
-            if (msgl = "knight") message.content = "!faction knight";
-            if (msgl = "viking") message.content = "!faction viking";
-        }
-        if (cmd = "rank" && ["pc", "ps4", "xbox"].includes(msgl)) return message.reply("Have you thought about using \"!platform\" instead?");
-    }
-
-    if (!message.content.startsWith("!")) return;
     console.log(`Cmd = "${cmd}"`);
     console.log(`Msg = "${msg}"`);
 
