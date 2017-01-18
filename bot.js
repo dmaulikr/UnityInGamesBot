@@ -152,46 +152,76 @@ UnityBot.on("message", function (message) {
         }
         if (msg == "") return message.reply("No subject was provided?");
         if (["raider", "raiders"].includes(msg)) {
-            message.channel.sendMessage("__**Raider guide**__\n<http://forums.ubi.com/showthread.php/1499952-Hall-of-Heroes-Raider-Guide?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Raider guide**__\n<http://forums.ubi.com/showthread.php/1499952>")
         }
         if (["feint", "feints", "feinting"].includes(msg)) {
-            message.channel.sendMessage("__**Feint Guide**__\n<http://forums.ubi.com/showthread.php/1504115-Hall-of-Heroes-s-Guide-to-Feints?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Feint Guide**__\n<http://forums.ubi.com/showthread.php/1504115>")
         }
         if (["warlord", "warlords"].includes(msg)) {
-            message.channel.sendMessage("__**Warlord Guide**__\n<http://forums.ubi.com/showthread.php/1546959-Hall-of-Heroes-Warlord-Guide?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Warlord Guide**__\n<http://forums.ubi.com/showthread.php/1546959>")
         }
         if (["dominion"].includes(msg)) {
-            message.channel.sendMessage("__**Dominion Guide**__\n<http://forums.ubi.com/showthread.php/1526800-Hall-of-Heroes-Guide-to-Dominion?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Dominion Guide**__\n<http://forums.ubi.com/showthread.php/1526800>")
         }
         if (["shugoki"].includes(msg)) {
-            message.channel.sendMessage("__**Shugoki Guide**__\n<http://forums.ubi.com/showthread.php/1534046-Hall-of-Heroes-Shugoki-Basics?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Shugoki Guide**__\n<http://forums.ubi.com/showthread.php/1534046>")
         }
         if (["kensei"].includes(msg)) {
-            message.channel.sendMessage("__**Kensei Guide**__\n<http://forums.ubi.com/showthread.php/1491253-Hall-of-Heroes-Kensei-Guide?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Kensei Guide**__\n<http://forums.ubi.com/showthread.php/1491253>")
         }
         if (["faction war","faction wars"].includes(msg)) {
-            message.channel.sendMessage("__**Faction wars Guide\n<http://forums.ubi.com/showthread.php/1534055-Hall-of-Heroes-Guide-to-Faction-War?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Faction wars Guide\n<http://forums.ubi.com/showthread.php/1534055>")
         }
         if (["warden","wardens"].includes(msg)) {
-            message.channel.sendMessage("__**Warden Guide**__\n**Basics** <http://forums.ubi.com/showthread.php/1487785-Hall-of-Heroes-Warden-Guide?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>\n**Advanced** <http://forums.ubi.com/showthread.php/1526129-Hall-of-Heroes-Advanced-mechanics-The-Warden?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Warden Guide**__\n**Basics** <http://forums.ubi.com/showthread.php/1487785>\n**Advanced** <http://forums.ubi.com/showthread.php/1526129>")
         }
         if (["orochi"].includes(msg)) {
-            message.channel.sendMessage("__**Orochi Guide**__\n<http://forums.ubi.com/showthread.php/1509277-Hall-of-Heroes-Orochi-Guide-Updated?s=406ad7dab2f9b7ccacbc5ea1ebe0d720&highlight=Hall+of+Heroes>")
+            message.channel.sendMessage("__**Orochi Guide**__\n<http://forums.ubi.com/showthread.php/1509277>")
         }
     }
     if (cmd == "info") {
         console.log("Info ran")
+        if (["peacekeeper", "peacekeepers", "class peacekeeper", "class peacekeepers"].includes(msg)) {
+            message.channel.sendMessage("*Peacekeeper*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range, High Mobility\nVery fast attacks. Use dagger to cancel or confirm attacks into bleed damage and a deflect ability");
+        }
+        if (["conqueror", "conquerors", "class conqueror", "class conquerors"].includes(msg)) {
+            message.channel.sendMessage("*Conqueror*\n**Difficulty**: Medium\n**Fighting Style** Defensive\nAuto Blocking Defense Mode\nInterrupts attacks with standard block. Highly effective defensive mode and unblockable shield based attacks.");
+        }
+        if (["warden", "wardens", "class warden", "class wardens"].includes(msg)) {
+            message.channel.sendMessage("*Warden*\n**Difficulty**: Easy\n**Fighting Style** Adaptable\nStrait Forward Strategy\nUnblockable shoulder bash attacks and strong interruption abilities and throws.");
+        }
+
+        if (["orochi", "orochies", "class orochi", "class orochies"].includes(msg)) {
+            message.channel.sendMessage("*Orochi*\n**Difficulty**: Hard\n**Fighting Style** Assassin\nCounter Attacker\nVery fast light attacks. Can dodge into faster attacks and has deflect abilities");
+        }
+        if (["shugoki", "shugokis", "class shugoki", "class shugokis"].includes(msg)) {
+            message.channel.sendMessage("*Shugoki*\n**Difficulty**: Easy\n**Fighting Style** Disabler\nHard Hitter\nPassive uninterruptible stance. Charging heavy attacks and light attacks can't be interrupted");
+        }
+        if (["kensei", "kenseis", "class kensei", "class kenseis"].includes(msg)) {
+            message.channel.sendMessage("*Kensei*\n**Difficulty**: Medium\n**Fighting Style** Adaptable\nGood Melee Range\nHigh heavy attacks are unblockable. Has many maneuvers and attacks initate chain attacks.");
+        }
+
+        if (["berserker", "berserkers", "class berserker", "class berserkers"].includes(msg)) {
+            message.channel.sendMessage("*Berserker*\n**Difficulty**: Hard\n**Fighting Style** Harasser\nShort Ranged Fast Attacks\nSome attacks can hit multiple targets in a row. Charging attacks to harass opponents and a deflect ability.");
+        }
+        if (["warlord", "warlords", "class warlord", "class warlords"].includes(msg)) {
+            message.channel.sendMessage("*Warlord*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range\nDefensive properties on light and heavy attacks. A defensive mode and an unblockable headbutt.");
+        }
+        if (["raider", "raiders", "class raider", "class raiders"].includes(msg)) {
+            message.channel.sendMessage("*Raider*\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks\n");
+        }
+
         if (["change faction", "faction change", "test thing"].includes(msg)) {
-            message.channel.sendMessage("It is possible to change your faction but if you change during a faction war it will disqualify you from any rewards.");
+            message.channel.sendMessage("You are able to change your faction allegiance at any time but doing so during a season will disqualify you from any rewards.");
         }
         if (["knights", "the knights", "faction knights"].includes(msg)) {
-            message.channel.sendMessage("Knights were gifted to the lands by the gods, all knights are superior in every way and only the wisest of mortals join their ranks.");
+            message.channel.sendMessage("Sent by the iron legions with the object to pacify the land. Knights have acquired the taste of freedom and made ashfeld their home. They believe that the ancient ruins covering their lands were build by the great empire, the precursor of the iron legion.\n\nDisorganized for centuries, ashfeld's knights have mostly been a collection of petty warlords and bands of roving mercenary knights. The last decade however, the knights have corralled under a single banner, ofter at sword point, by Ashfeld's Blackston Legion, led by Apollyon.\n\nSo far, the Knights have managed to defend ashfeld from viking and samurai attacks. Apollyon argues that a threat of war is imminent and tells stragglers that joining her legion is the only guarantee they will hold onto their landss.");
         }
         if (["samurai", "the samurai", "faction samurai"].includes(msg)) {
-            message.channel.sendMessage("(Not Complete)");
+            message.channel.sendMessage("Originally from a land far away across the seas, the samurai tell a tale of an Emperor and a homeland lost to sea and fire. Nearly a millennium later, the nomadic nation has ceased its wandering and build a new empire near the reclaimed homelands of the vikings and the contested lands of the knights.\n\nHaving spent the last decades acclimating to the marshy hills known as the Myre, they flourish but remain vastly outnumbered by their neighbors. They have to rely on greater marial skill, cunning, and devotion to their culture in order to survive... For they may be the last of their kind.");
         }
         if (["vikings", "the vikings", "faction vikings"].includes(msg)) {
-            message.channel.sendMessage("Vikings, the ones that believe they are immortal");
+            message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across teh sea to where they have established a new homeland. They returned for mayn reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
         }
         if (msg === "losers") {
             message.channel.sendMessage("There are no losers if you fight with honor!");
