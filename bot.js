@@ -56,7 +56,7 @@ UnityBot.on("message", function (message) {
         BotActive = false;
     }
     if (cmd == "activate" && message.author.id == "130329656476827648") {
-        message.delete().then(message.channel.sendMessage("**Functions Enabled**"))
+        message.channel.sendMessage("**Functions Enabled**")
         BotActive = true;
     }
 
@@ -190,33 +190,33 @@ UnityBot.on("message", function (message) {
     if (cmd == "info") {
         console.log("Info ran")
         if (["peacekeeper", "peacekeepers", "class peacekeeper", "class peacekeepers"].includes(msgl)) {
-            message.channel.sendMessage("*Peacekeeper*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range, High Mobility\nVery fast attacks. Use dagger to cancel or confirm attacks into bleed damage and a deflect ability");
+            message.channel.sendMessage("__**Peacekeeper**__\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range, High Mobility\nVery fast attacks. Use dagger to cancel or confirm attacks into bleed damage and a deflect ability");
         }
         if (["conqueror", "conquerors", "class conqueror", "class conquerors"].includes(msgl)) {
-            message.channel.sendMessage("*Conqueror*\n**Difficulty**: Medium\n**Fighting Style** Defensive\nAuto Blocking Defense Mode\nInterrupts attacks with standard block. Highly effective defensive mode and unblockable shield based attacks.");
+            message.channel.sendMessage("__**Conqueror**__\n**Difficulty**: Medium\n**Fighting Style** Defensive\nAuto Blocking Defense Mode\nInterrupts attacks with standard block. Highly effective defensive mode and unblockable shield based attacks.");
         }
         if (["warden", "wardens", "class warden", "class wardens"].includes(msgl)) {
-            message.channel.sendMessage("*Warden*\n**Difficulty**: Easy\n**Fighting Style** Adaptable\nStrait Forward Strategy\nUnblockable shoulder bash attacks and strong interruption abilities and throws.");
+            message.channel.sendMessage("__**Warden**__\n**Difficulty**: Easy\n**Fighting Style** Adaptable\nStraight Forward Strategy\nUnblockable shoulder bash attacks and strong interruption abilities and throws.");
         }
 
         if (["orochi", "orochies", "class orochi", "class orochies"].includes(msgl)) {
-            message.channel.sendMessage("*Orochi*\n**Difficulty**: Hard\n**Fighting Style** Assassin\nCounter Attacker\nVery fast light attacks. Can dodge into faster attacks and has deflect abilities");
+            message.channel.sendMessage("__**Orochi**__\n**Difficulty**: Hard\n**Fighting Style** Assassin\nCounter Attacker\nVery fast light attacks. Can dodge into faster attacks and has deflect abilities");
         }
         if (["shugoki", "shugokis", "class shugoki", "class shugokis"].includes(msgl)) {
-            message.channel.sendMessage("*Shugoki*\n**Difficulty**: Easy\n**Fighting Style** Disabler\nHard Hitter\nPassive uninterruptible stance. Charging heavy attacks and light attacks can't be interrupted");
+            message.channel.sendMessage("__**Shugoki**__\n**Difficulty**: Easy\n**Fighting Style** Disabler\nHard Hitter\nPassive uninterruptible stance. Charging heavy attacks and light attacks can't be interrupted");
         }
         if (["kensei", "kenseis", "class kensei", "class kenseis"].includes(msgl)) {
-            message.channel.sendMessage("*Kensei*\n**Difficulty**: Medium\n**Fighting Style** Adaptable\nGood Melee Range\nHigh heavy attacks are unblockable. Has many maneuvers and attacks initate chain attacks.");
+            message.channel.sendMessage("__**Kensei**__\n**Difficulty**: Medium\n**Fighting Style** Adaptable\nGood Melee Range\nHigh heavy attacks are unblockable. Has many maneuvers and attacks initate chain attacks.");
         }
 
         if (["berserker", "berserkers", "class berserker", "class berserkers"].includes(msgl)) {
-            message.channel.sendMessage("*Berserker*\n**Difficulty**: Hard\n**Fighting Style** Harasser\nShort Ranged Fast Attacks\nSome attacks can hit multiple targets in a row. Charging attacks to harass opponents and a deflect ability.");
+            message.channel.sendMessage("__**Berserker**__\n**Difficulty**: Hard\n**Fighting Style** Harasser\nShort Ranged Fast Attacks\nSome attacks can hit multiple targets in a row. Charging attacks to harass opponents and a deflect ability.");
         }
         if (["warlord", "warlords", "class warlord", "class warlords"].includes(msgl)) {
-            message.channel.sendMessage("*Warlord*\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range\nDefensive properties on light and heavy attacks. A defensive mode and an unblockable headbutt.");
+            message.channel.sendMessage("__**Warlord**__\n**Difficulty**: Medium\n**Fighting Style** Counter Attacker\nShort Range\nDefensive properties on light and heavy attacks. A defensive mode and an unblockable headbutt.");
         }
         if (["raider", "raiders", "class raider", "class raiders"].includes(msgl)) {
-            message.channel.sendMessage("*Raider*\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks\n");
+            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks\n");
         }
 
         if (["change faction", "faction change", "test thing"].includes(msgl)) {
