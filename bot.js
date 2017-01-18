@@ -273,18 +273,18 @@ UnityBot.on("message", function (message) {
         }
     }
 
-    if (cmd == "assign" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))
-    {
-        MSplit = msg.split(" ");
-        message.guild.member(message.mentions.users.first()).addRole(MSplit[1]);
-        message.reply(`Role ${MSplit[1]} given to ${MSplit[0]}`);
-    }
-    if (cmd == "remove" && message.author.id == "130329656476827648")
-    {
-        MSplit = msg.split(" ");
-        message.guild.member(message.mentions.users.first()).removeRole(MSplit[1]);
-        message.reply(`Role ${MSplit[1]} removed from ${MSplit[0]}`);
-    }
+//    if (cmd == "assign" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))
+//    {
+//        MSplit = msg.split(" ");
+//        message.guild.member(message.mentions.users.first()).addRole(MSplit[1]);
+//        message.reply(`Role ${MSplit[1]} given to ${MSplit[0]}`);
+//    }
+//    if (cmd == "remove" && message.author.id == "130329656476827648")
+//    {
+//        MSplit = msg.split(" ");
+//       message.guild.member(message.mentions.users.first()).removeRole(MSplit[1]);
+//       message.reply(`Role ${MSplit[1]} removed from ${MSplit[0]}`);
+//    }
 
     //  These only work in faction channel
     if (message.channel.id !== "266645102418591745") return;
