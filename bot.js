@@ -5,6 +5,7 @@ console.log("-bot: Loading Auth File");
 const AuthFile = require("./configure/auth.json");
 
 var BotActive = true;
+var BotDisabled = false;
 
 QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The heroes will always be remembered. The best. The best and the worst. And a few who were a bit of both.",
     "Knighthood lies above eternity, it doesn’t live off fame, but rather deeds.",
@@ -44,25 +45,33 @@ QuoteVikings = [
 UnityBot.on("message", function (message) {
 
     if (message.author.bot) return;
+    if (BotDisabled = true) return;
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
 
     msg = message.content.split(" ").slice(1).join(" ").trim();
     msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
 
-    if (cmd == "activate" && message.author.id == "130329656476827648") {
-        message.channel.sendMessage("**Functions Enabled**")
+    if (cmd == "disable" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")){
+        BotDisabled = true;
+        message.reply("I will no longer accept any commands other than \"!activate\" and will no longer reply to any requests.\n**Disabled**")
+    }
+
+    if (cmd == "activate" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
+        message.channel.sendMessage("**Fuctionality Restored**")
         BotActive = true;
+        BotDisabled = true;
     }
 
     if (message.content.startsWith(">")) {
         if (BotActive === false) return;
         if (message.channel.id !== "266645102418591745") return;
-        if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msg)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
-        if (cmd = "rank" && ["viking", "knight"].includes(msg)) {
+        if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msgl)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
+        if (cmd = "rank" && ["viking", "knight"].includes(msgl)) {
             message.reply("\">role\" Is outdated but I will process this request for you! in the future please use \"!faction\"");
             if (msgl = "knight") message.content = "!faction knight";
             if (msgl = "viking") message.content = "!faction viking";
+            msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
         }
         if (cmd = "rank" && ["pc", "ps4", "xbox"].includes(msgl)) return message.reply("Have you thought about using \"!platform\" instead?");
     }
@@ -269,7 +278,7 @@ UnityBot.on("message", function (message) {
         if (msgl == "chip damage" || msgl == "block damage" || msgl == "chip damage/block damage"){
             message.channel.sendMessage("**Chip Damage/block damage:**\nDamage you take when you block a heavy attack.");
         }
-        if (msgl == "comamnd grab"){
+        if (msgl == "command grab"){
             message.channel.sendMessage("**Command Grab:**\nA command a player can input with certain characters that moves/damages another player without them being able to defend against or react if hit. These moves are usually unblockable.");
         }
         if (msgl == "poke"){
