@@ -138,7 +138,7 @@ UnityBot.on("message", function (message) {
             knightsQ = message.guild.roles.get("256619278273478656").members.size;
             vikingsQ = message.guild.roles.get("256619528945926145").members.size;
             samuraiQ = message.guild.roles.get("256618627787128832").members.size;
-            message.channel.sendMessage(`Scouts show the faction populations are\n**Knights:** ${knightsQ}\n**Vikings:** ${vikingsQ}\n**Samurai** ${SamuraiQ}`);
+            message.channel.sendMessage(`Scouts show the faction populations are\n**Knights:** ${knightsQ}\n**Vikings:** ${vikingsQ}\n**Samurai** ${samuraiQ}`);
         }
     }
 
