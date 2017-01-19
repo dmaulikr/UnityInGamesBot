@@ -519,7 +519,7 @@ UnityBot.on("message", function (message) {
         let KnightsID = "256619278273478656";
         let SamuraiID = "256618627787128832";
         let VikingsID = "256619528945926145";
-        if (["vikings", "viking", "samurai", "knights", "knight"].includes(msg)) {
+        if (["vikings", "viking", "samurai", "knights", "knight"].includes(msgl)) {
             let CurFaction = null;
             let NewFaction = null;
             let NewName = null;
