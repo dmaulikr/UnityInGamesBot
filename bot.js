@@ -78,7 +78,7 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (cmd == "update" && message.author.id == "130329656476827648") {
+    if (cmd == "update" && BotActive == false && message.author.id == "130329656476827648") {
         message.reply("The bot is already updating.")
         return;
     }
