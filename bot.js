@@ -45,10 +45,10 @@ QuoteVikings = [
 UnityBot.on("message", function (message) {
 
     if (message.author.bot) return;
-    if (BotDisabled == true) return;
 
     if (message.content.startsWith(">")) {
         if (BotActive === false) return;
+        if (BotDisabled == true) return;
         if (message.channel.id !== "266645102418591745") return;
 
         cmd = message.content.toLowerCase().substring(1).split(" ")[0];
@@ -77,6 +77,8 @@ UnityBot.on("message", function (message) {
         BotDisabled = true;
         return;
     }
+
+    if (BotDisabled == true) return;
 
     if (cmd == "update" && BotActive == false && message.author.id == "130329656476827648") {
         message.reply("The bot is already updating.")
