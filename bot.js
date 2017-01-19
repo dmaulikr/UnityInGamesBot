@@ -74,7 +74,8 @@ UnityBot.on("message", function (message) {
     console.log(`Msg = "${msg}"`);
     console.log(`msgl = ${msgl}`);
 
-    if (cmd == "activate" || cmd == "enable" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
+    if ((cmd == "activate" || cmd == "enable") && (message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
+        if (BotActive == true || BotDisabled == false) return message.channel.sendMessage("The bot is already fully functional?");
         message.channel.sendMessage("**Fuctionality Restored**")
         BotActive = true;
         BotDisabled = false;
