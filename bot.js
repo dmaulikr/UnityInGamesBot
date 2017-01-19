@@ -7,6 +7,9 @@ const AuthFile = require("./configure/auth.json");
 var BotActive = true;
 var BotDisabled = false;
 
+QuoteJJ = ["He who gives me money is a nice man.",
+    "If you can't stand the pain, stop walking into my sword.",
+];
 QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The heroes will always be remembered. The best. The best and the worst. And a few who were a bit of both.",
     "Knighthood lies above eternity, it doesn’t live off fame, but rather deeds.",
     "A great battle is a terrible thing, but in the midst of blood and carnage, there is sometimes also beauty, beauty that could break your heart.",
