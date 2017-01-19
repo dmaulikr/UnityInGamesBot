@@ -7,8 +7,14 @@ const AuthFile = require("./configure/auth.json");
 var BotActive = true;
 var BotDisabled = false;
 
-QuoteJJ = ["He who gives me money is a nice man.",
-    "If you can't stand the pain, stop walking into my sword.",
+QuoteJJ = [
+    "If you can't stand the pain, stop walking into their swords.",
+    "When your mind is starting to struggle, try using an arm instead.",
+    "If they refuse, teach obedience.",
+    "If they accept, teach resistance.",
+    "How will you control an army if you can't control yourself?",
+    "A true leader has mastered both following and leading.",
+    "What is the worth of a sharp axe without a sharp mind?",
 ];
 QuoteKnights = ["Most have been forgotten. Most deserve to be forgotten. The heroes will always be remembered. The best. The best and the worst. And a few who were a bit of both.",
     "Knighthood lies above eternity, it doesn’t live off fame, but rather deeds.",
@@ -91,7 +97,7 @@ UnityBot.on("message", function (message) {
 
     if (BotActive === false) return message.reply("Functions are currently offline (Update in progress?)");
 
-    if (cmd == "disable" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
+    if (cmd == "disable" && (message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
         BotDisabled = true;
         message.reply("I will no longer accept any commands other than \"!activate\" and will no longer reply to any requests.\n**Disabled**")
         return;
