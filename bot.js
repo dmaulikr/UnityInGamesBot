@@ -456,7 +456,10 @@ UnityBot.on("message", function (message) {
             return;
         }
     }
-
+    if (cmd === "jj" || cmd === "jjplay175") {
+        let RNumb = Math.floor((Math.random() * QuoteJJ.length));
+        message.channel.sendMessage(QuoteJJ[RNumb]);
+    }
     if (cmd === "knights" || cmd === "knight") {
         let RNumb = Math.floor((Math.random() * QuoteKnights.length));
         message.channel.sendMessage(QuoteKnights[RNumb]);
