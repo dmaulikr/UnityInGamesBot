@@ -57,8 +57,8 @@ UnityBot.on("message", function (message) {
         if (cmd = "rank" && ["vikings", "samurai", "knights"].includes(msgl)) return message.reply("\">role\" Is outdated, try using \"!faction\" instead.");
         if (cmd = "rank" && ["viking", "knight"].includes(msgl)) {
             message.reply("\">role\" Is outdated but I will process this request for you! in the future please use \"!faction\"");
-            if (msgl = "knight") message.content = "!faction knight";
-            if (msgl = "viking") message.content = "!faction viking";
+            if (msgl == "knight") message.content = "!faction knight";
+            if (msgl == "viking") message.content = "!faction viking";
         }
     }
 
