@@ -128,7 +128,7 @@ UnityBot.on("message", function (message) {
     }
 
     if (cmd == "discord") {
-        if (msgl == "platform" || msgl == "playforms") {
+        if (msgl == "platform" || msgl == "platforms") {
             pcQ = message.guild.roles.get("269324174344847361").members.size;
             xboxQ = message.guild.roles.get("269324137778905088").members.size;
             ps4Q = message.guild.roles.get("269324186042892289").members.size;
@@ -205,6 +205,10 @@ UnityBot.on("message", function (message) {
             message.reply("\nTo disable the bot use \"!disable\", to enable use \"!enable\"");
             return;
         }
+    }
+
+    if (cmd == "report"){
+
     }
 
     if (cmd == "guide" || cmd == "guides") {
@@ -456,11 +460,23 @@ UnityBot.on("message", function (message) {
             return;
         }
         if (["raider", "raiders", "class raider", "class raiders"].includes(msgl)) {
-            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks\n");
+            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Easy\n**Fighting Style** Disabling\nHigh Damage Attacks\nRaider has unblockable zone attacks that it can use in all chain attacks. Stun attacks and throws. Strong, versatile throw attacks");
+            return;
+        }
+        if (["lawbringer", "lawbringers", "class lawbringer", "class lawbringers"].includes(msgl)) {
+            message.channel.sendMessage("__**Lawbringer**__\n**Difficulty**: Hard\n**Fighting Style** Counter Attacker\nGood At Disabling Enemies\nLawbringers attacks can stun, he keeps enemies off balance.");
+            return;
+        }
+        if (["nobushi", "nobushis", "class nobushi", "class nobushis"].includes(msgl)) {
+            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Hard\n**Fighting Style** Zone Control\nLongest Attack Range\nNobushi has the capability to revive allies swiftly and many other support feats.\n");
+            return;
+        }
+        if (["valkyrie", "valkyries", "class valkyrie", "class valkyries"].includes(msgl)) {
+            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Medium\n**Fighting Style** Keeps Enemies At Bay\nComplex combos\nValkyrie is excellent at takedowns and can use their shield to attack.");
             return;
         }
 
-        if (["change faction", "faction change", "test thing"].includes(msgl)) {
+        if (["change faction", "faction change"].includes(msgl)) {
             message.channel.sendMessage("You are able to change your faction allegiance at any time but doing so during a season will disqualify you from any rewards.");
             return;
         }
@@ -480,8 +496,9 @@ UnityBot.on("message", function (message) {
             message.channel.sendMessage("There are no losers if you fight with honor!");
             return;
         }
+
     }
-    if (cmd === "jj" || cmd === "jjplay175") {
+    if (cmd === "quote" || cmd === "quotes") {
         let RNumb = Math.floor((Math.random() * QuoteJJ.length));
         message.channel.sendMessage(QuoteJJ[RNumb]);
     }
