@@ -74,7 +74,7 @@ UnityBot.on("message", function (message) {
     if (cmd == "activate" || cmd == "enable" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
         message.channel.sendMessage("**Fuctionality Restored**")
         BotActive = true;
-        BotDisabled = true;
+        BotDisabled = false;
         return;
     }
 
