@@ -45,13 +45,12 @@ QuoteVikings = [
 UnityBot.on("message", function (message) {
 
     if (message.author.bot) return;
-    if (BotDisabled = true) return;
-
+    if (BotDisabled == true) return;
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
-
     msg = message.content.split(" ").slice(1).join(" ").trim();
     msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
-
+    console.log(`cmd = ${cmd}`);
+    console.log(`msgl = ${msgl}`);
     if (cmd == "disable" && message.author.id == "130329656476827648" || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")){
         BotDisabled = true;
         message.reply("I will no longer accept any commands other than \"!activate\" and will no longer reply to any requests.\n**Disabled**")
