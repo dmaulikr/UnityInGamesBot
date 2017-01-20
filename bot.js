@@ -489,7 +489,7 @@ UnityBot.on("message", function (message) {
             return;
         }
         if (["vikings", "the vikings", "faction vikings"].includes(msgl)) {
-            message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across teh sea to where they have established a new homeland. They returned for mayn reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
+            message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across the sea to where they have established a new homeland. They returned for mayn reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
             return;
         }
         if (msg === "losers") {
@@ -498,6 +498,11 @@ UnityBot.on("message", function (message) {
         }
 
     }
+
+if (cmd == "lore"){
+    if (msgl == "kensei") return message.channel.sendMessage("Kensei are the living incarnations of Bushidō, the samurai way of the warrior, or as close as one can get. Masters of multiple martial arts, they are trained from infancy to fight and die for their emperor or their fellow samurai without asking why. Kensei wear heavy armor and fight with the nodachi, a longer version of the katana that cleaves enemies in a few elegant and powerful strikes. Kensei spend their lives fighting and training as they strive to attain a level of perfection few other warriors can ever hope to achieve.")
+}
+
     if (cmd === "quote" || cmd === "quotes") {
         let RNumb = Math.floor((Math.random() * QuoteJJ.length));
         message.channel.sendMessage(QuoteJJ[RNumb]);
