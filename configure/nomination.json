@@ -1,8 +1,8 @@
 {
     "FactionLock": "true",
     "Factions": {
-        "knights": [[]],
-        "vikings": [[]],
-        "samurai": [[]]
+        "knights": [],
+        "vikings": [],
+        "samurai": []
     }
 }

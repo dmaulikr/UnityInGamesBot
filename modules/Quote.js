@@ -1,0 +1,23 @@
+console.log("-Quote: Loading Quotes");
+const QuoteList = require("../configure/quotes.json");
+
+function quote(message, msgl){
+    if (msgl === "knights" || msgl === "knight") {
+            let RNumb = Math.floor((Math.random() * QuoteList.QuoteKnights.length));
+            message.channel.sendMessage(QuoteList.QuoteKnights[RNumb]);
+            return;
+        }
+        if (msgl === "samurai") {
+            let RNumb = Math.floor((Math.random() * QuoteList.QuoteSamurai.length));
+            message.channel.sendMessage(QuoteList.QuoteSamurai[RNumb]);
+            console.log(RNumb);
+            return;
+        }
+        if (msgl === "viking" || msgl === "vikings") {
+            let RNumb = Math.floor((Math.random() * QuoteList.QuoteVikings.length));
+            message.channel.sendMessage(QuoteList.QuoteVikings[RNumb]);
+            return;
+        }
+        let RNumb = Math.floor((Math.random() * QuoteList.Quote.length));
+        message.channel.sendMessage(QuoteList.Quote[RNumb]);
+}

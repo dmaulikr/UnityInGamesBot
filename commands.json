@@ -1,0 +1,42 @@
+{
+    "commands":{
+        "Activate":[
+            "enable",
+            "activate"
+        ],
+        "Disable":[
+            "disable"
+        ],
+        "RoleID":[
+            "roleid"
+        ],
+        "Nominate":[
+            "nominate",
+            "vote"
+        ],
+        "Discord":[
+            "discord"
+        ],
+        "Help":[
+            "help",
+            "aide"
+        ],
+        "Guide":[
+            "guide",
+            "guides"
+        ],
+        "Info":[
+            "info",
+            "glossary"
+        ],
+        "Quote":[
+            "quote",
+            "quotes"
+        ],
+        "Roles":[
+            "faction",
+            "platform"
+        ]
+
+    }
+}
