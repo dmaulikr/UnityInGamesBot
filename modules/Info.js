@@ -18,15 +18,15 @@ function info(message, msgl, cmd) {
             message.channel.sendMessage("**Block:**\nTo prevent your enemy from successfully hitting you.\nBlocking a light attack will stop a chain/combo (Aka Superior Block)\nBlocking a heavy attack will not stop the enemy from chain/combo attacks (unless the hero possesses Superior Block) and will also result in a very small amount of block damage/chip damage.");
             return;
         }
-        if (msgl == "Chain/Combo") {
+        if (msgl == "chain/combo" || msgl == "combo" || msgl == "chain") {
             message.channel.sendMessage("**Chain/Combo:**\nAttacks that link directly into other attacks and allow you to perform unique attacks or abilities when done in a specific order.");
             return;
         }
-        if (msgl == "Chain/Combo finisher") {
+        if (msgl == "chain/combo finisher" || msgl == "chain finisher" || msgl == "combo finisher") {
             message.channel.sendMessage("**Chain/Combo finisher:**\nAttacks that usually end a chain/combo. Some combo/chain finishers will do extra damage.");
             return;
         }
-        if (msgl == "Counter Guardbreak") {
+        if (msgl == "counter guardbreak") {
             message.channel.sendMessage("**Counter Guardbreak:**\nUsing your own guard break to prevent the enemy from guard breaking you. This is done by pressing the guard breaks within a specific window during the enemies guard break animation.");
             return;
         }
@@ -82,7 +82,7 @@ function info(message, msgl, cmd) {
             message.channel.sendMessage("**Unblockable:**\nVery powerful attacks that are usually very slow.They cannot be blocked through normal means and must be parried or dodged. Some abilities also have the unblockable status (I.E Raider sprinting grab/Warden Shoulder charge) and these abilities have to be dodged as there is no way to block abilities.");
             return;
         }
-        if (msgl == "Uninterruptible status" || msgl == "uninterruptible") {
+        if (msgl == "uninterruptible status" || msgl == "uninterruptible") {
             message.channel.sendMessage("**Uninterruptible status:**\nThis has 2 subtypes. Hyper armor and Super armor. Uninterruptible does not mean you do not take damage it only means your animation cannot be interrupted by attacks.");
             return;
         }
@@ -218,7 +218,7 @@ function info(message, msgl, cmd) {
             return;
         }
         if (["knights", "the knights", "faction knights"].includes(msgl)) {
-            message.channel.sendMessage("Sent by the iron legions with the object to pacify the land. Knights have acquired the taste of freedom and made ashfeld their home. They believe that the ancient ruins covering their lands were build by the great empire, the precursor of the iron legion.\n\nDisorganized for centuries, ashfeld's knights have mostly been a collection of petty warlords and bands of roving mercenary knights. The last decade however, the knights have corralled under a single banner, ofter at sword point, by Ashfeld's Blackston Legion, led by Apollyon.\n\nSo far, the Knights have managed to defend ashfeld from viking and samurai attacks. Apollyon argues that a threat of war is imminent and tells stragglers that joining her legion is the only guarantee they will hold onto their landss.");
+            message.channel.sendMessage("Sent by the iron legions with the object to pacify the land. Knights have acquired the taste of freedom and made ashfeld their home. They believe that the ancient ruins covering their lands were build by the great empire, the precursor of the iron legion.\n\nDisorganized for centuries, ashfeld's knights have mostly been a collection of petty warlords and bands of roving mercenary knights. The last decade however, the knights have corralled under a single banner, ofter at sword point, by Ashfeld's Blackstone Legion, led by Apollyon.\n\nSo far, the Knights have managed to defend ashfeld from viking and samurai attacks. Apollyon argues that a threat of war is imminent and tells stragglers that joining her legion is the only guarantee they will hold onto their landss.");
             return;
         }
         if (["samurai", "the samurai", "faction samurai"].includes(msgl)) {
@@ -226,7 +226,11 @@ function info(message, msgl, cmd) {
             return;
         }
         if (["vikings", "the vikings", "faction vikings"].includes(msgl)) {
-            message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across the sea to where they have established a new homeland. They returned for mayn reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
+            message.channel.sendMessage("The vikings vanished centuries ago, fleeing their crumbling homelands for shores unknown. Those left behind were conquered by the knights and assimilated into their cultures.\n\nThe Vikings returned in great numbers a few centuries ago. They came from far across the sea to where they have established a new homeland. They returned for many reasons, but mostly to reclaim their ancient homeland in the north: Valkeinheim. Hundreds of viking clans now coexist in relative peace in the frozen tundra. To the outside observer, however, they seem to exist in a state of perpetual civil war.\n\nVikings are the undisputed masters of the sea and fresh water. When this raucous nation gathers together in massive armadas of dragon-headed ships, they are fearsome of behold and nigh unstoppable.");
+            return;
+        }
+        if (msgl == "blackstone" || msgl == "blackstone legion"){
+            message.channel.sendMessage("The Blackstone Legion is a warring Knights faction lead by a female warlord named Apollyon.");
             return;
         }
     }

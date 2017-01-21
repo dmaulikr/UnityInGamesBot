@@ -20,6 +20,11 @@ function quote(message, msgl){
             message.channel.sendMessage(QuoteList.QuoteVikings[RNumb]);
             return;
         }
+        if (msgl === "blackstone" || msgl === "blackstonelegion") {
+            let RNumb = Math.floor((Math.random() * QuoteList.QuoteBlackstone.length));
+            message.channel.sendMessage(QuoteList.QuoteBlackstone[RNumb]);
+            return;
+        }
         let RNumb = Math.floor((Math.random() * QuoteList.Quote.length));
         message.channel.sendMessage(QuoteList.Quote[RNumb]);
 }
