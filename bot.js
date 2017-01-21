@@ -1,8 +1,17 @@
 const Discord = require("discord.js");
 var UnityBot = new Discord.Client();
 
+process.on("unhandledRejection", (err) => {
+    console.error(`Uncaught Promise Error: \n${err.stack}`);
+});
+
+const fs = require('fs');
+
 console.log("-bot: Loading Auth File");
 const AuthFile = require("./configure/auth.json");
+
+console.log("-bot: Loading Nomination Data")
+const NomData = require("./configure/nomination.json");
 
 var BotActive = true;
 var BotDisabled = false;
@@ -52,6 +61,29 @@ QuoteVikings = [
 ]
 
 UnityBot.on("message", function (message) {
+
+    if (cmd == "nominate") {
+        message.reply("This is currently disabled");
+        return;
+        nominee = message.guild.member(message.mentions.users.first())
+        if (NomData.FactionLock == "true") {
+            let SameFact = false
+            if (!message.member.roles.has("256619278273478656") && !message.member.roles.has("256618627787128832") & !message.member.roles.has("256619528945926145")); {
+                message.reply("You require a faction to vote!")
+                return;
+            }
+            if (message.member.roles.has("256619278273478656") && nominee.roles.has("256619278273478656")) SameFact = true;
+            if (message.member.roles.has("256618627787128832") && nominee.roles.has("256618627787128832")) SameFact = true;
+            if (message.member.roles.has("256619528945926145") && nominee.roles.has("256619528945926145")) SameFact = true;
+            if (SameFact = false) return message.reply("You can only nominate people in your faction.");
+        }
+        if (!NomData.Database.includes(nominee)) {
+
+            message.channel.sendMessage(`${nominee.name} has been nominated by <@${message.member.id}>`)
+        }
+    }
+
+
 
     if (message.author.bot) return;
 
@@ -207,8 +239,7 @@ UnityBot.on("message", function (message) {
         }
     }
 
-    if (cmd == "report"){
-
+    if (cmd == "report") {
     }
 
     if (cmd == "guide" || cmd == "guides") {
@@ -499,29 +530,32 @@ UnityBot.on("message", function (message) {
 
     }
 
-if (cmd == "lore"){
-    if (msgl == "kensei") return message.channel.sendMessage("Kensei are the living incarnations of Bushidō, the samurai way of the warrior, or as close as one can get. Masters of multiple martial arts, they are trained from infancy to fight and die for their emperor or their fellow samurai without asking why. Kensei wear heavy armor and fight with the nodachi, a longer version of the katana that cleaves enemies in a few elegant and powerful strikes. Kensei spend their lives fighting and training as they strive to attain a level of perfection few other warriors can ever hope to achieve.")
-}
+//   ___DISABLED___
+    if (cmd == "lore") {
+        return;
+        if (msgl == "kensei") return message.channel.sendMessage("Kensei are the living incarnations of Bushidō, the samurai way of the warrior, or as close as one can get. Masters of multiple martial arts, they are trained from infancy to fight and die for their emperor or their fellow samurai without asking why. Kensei wear heavy armor and fight with the nodachi, a longer version of the katana that cleaves enemies in a few elegant and powerful strikes. Kensei spend their lives fighting and training as they strive to attain a level of perfection few other warriors can ever hope to achieve.")
+    }
 
     if (cmd === "quote" || cmd === "quotes") {
+        if (cmd === "knights" || cmd === "knight") {
+            let RNumb = Math.floor((Math.random() * QuoteKnights.length));
+            message.channel.sendMessage(QuoteKnights[RNumb]);
+            return;
+        }
+        if (cmd === "samurai") {
+            let RNumb = Math.floor((Math.random() * QuoteSamurai.length));
+            message.channel.sendMessage(QuoteSamurai[RNumb]);
+            console.log(RNumb);
+            return;
+        }
+        if (cmd === "viking" || cmd === "vikings") {
+            let RNumb = Math.floor((Math.random() * QuoteVikings.length));
+            message.channel.sendMessage(QuoteVikings[RNumb]);
+            return;
+        }
+
         let RNumb = Math.floor((Math.random() * QuoteJJ.length));
         message.channel.sendMessage(QuoteJJ[RNumb]);
-    }
-    if (cmd === "knights" || cmd === "knight") {
-        let RNumb = Math.floor((Math.random() * QuoteKnights.length));
-        message.channel.sendMessage(QuoteKnights[RNumb]);
-        return;
-    }
-    if (cmd === "samurai") {
-        let RNumb = Math.floor((Math.random() * QuoteSamurai.length));
-        message.channel.sendMessage(QuoteSamurai[RNumb]);
-        console.log(RNumb);
-        return;
-    }
-    if (cmd === "viking" || cmd === "vikings") {
-        let RNumb = Math.floor((Math.random() * QuoteVikings.length));
-        message.channel.sendMessage(QuoteVikings[RNumb]);
-        return;
     }
 
 
