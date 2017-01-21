@@ -1,3 +1,5 @@
+module.exports = {nominate};
+
 console.log("-Nominate: Loading Nomination Data")
 const NomData = require("../configure/nomination.json");
 

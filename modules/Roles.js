@@ -1,3 +1,5 @@
+module.exports = {Roles};
+
 function Roles(message,msgl,cmd){
     if (cmd === "platform") {
         let pcID = "269324174344847361";

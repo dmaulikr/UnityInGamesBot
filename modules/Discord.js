@@ -1,3 +1,5 @@
+module.exports = {discord};
+
 function discord(message,msgl) {
         if (msgl == "platform" || msgl == "platforms") {
             pcQ = message.guild.roles.get("269324174344847361").members.size;

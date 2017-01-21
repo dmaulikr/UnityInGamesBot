@@ -1,6 +1,8 @@
 console.log("-Quote: Loading Quotes");
 const QuoteList = require("../configure/quotes.json");
 
+module.exports = {quote};
+
 function quote(message, msgl){
     if (msgl === "knights" || msgl === "knight") {
             let RNumb = Math.floor((Math.random() * QuoteList.QuoteKnights.length));

@@ -1,3 +1,5 @@
+module.exports = {help};
+
 function help(message,cmd){
     if (cmd === "aide") {
         if (message.channel.id == "254691230569463809") {

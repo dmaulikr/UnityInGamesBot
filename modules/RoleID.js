@@ -1,3 +1,5 @@
+module.exports = {RoleID};
+
 function RoleID(message,msg){
     if (msg === undefined) {
             message.channel.sendMessage("No role specified?");

@@ -1,3 +1,5 @@
+module.exports = {intercept};
+
 function intercept(message,ModRoles) {
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];

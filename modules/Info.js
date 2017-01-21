@@ -1,3 +1,5 @@
+module.exports = {info};
+
 function info(message, msgl, cmd) {
 
     if (cmd == "glossary") {

@@ -1,3 +1,5 @@
+module.exports = {On, Off};
+
 function On(ComData,message) {
     if (ComData.Bot == "enabled") return message.channel.sendMessage("The bot is already fully functional?");
     ComData.Bot = "enabled";

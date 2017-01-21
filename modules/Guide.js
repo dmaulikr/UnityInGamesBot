@@ -1,3 +1,5 @@
+module.exports = {guide};
+
 function guide(message,msg) {
     
     if (message.channel.id == "254691230569463809") {

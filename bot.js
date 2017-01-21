@@ -48,14 +48,13 @@ UnityBot.on("message", function (message) {
 
         ModIntercept.intercept(message,ModRoles)
     }
-
+    
     if (!message.content.startsWith(ComData.Prefix)) return;
-
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
     msg = message.content.split(" ").slice(1).join(" ").trim();
     msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
-
-    if (CommandsFile.commands.Activate.includes(msgl) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.includes(TheMods))) {
+    console.log(`cmd = ${cmd} msg = ${msg}`);
+    if (CommandsFile.commands.Activate.includes(cmd) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
         ModOnOff.On(ComData, message);
         return;
     }
@@ -67,52 +66,53 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (CommandsFile.commands.Disable.includes(msgl) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
+    if (CommandsFile.commands.Disable.includes(cmd) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
+        console.log("disable")
         ModOnOff.Off(ComData, message);
         return;
     }
 
-    if (CommandsFile.commands.RoleID.includes(msgl) && message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
+    if (CommandsFile.commands.RoleID.includes(cmd) && message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
         ModRoleID.RoleID(message, msg);
         return;
     }
 
-    if (CommandsFile.commands.Nominate.includes(msgl)) {
+    if (CommandsFile.commands.Nominate.includes(cmd)) {
         ModNominate.nominate(message);
         return;
     }
 
-    if (CommandsFile.commands.Discord.includes(msgl)) {
+    if (CommandsFile.commands.Discord.includes(cmd)) {
         ModDiscord.discord(message, msgl);
         return;
     }
 
-    if (CommandsFile.commands.Help.includes(msgl)) {
+    if (CommandsFile.commands.Help.includes(cmd)) {
         ModHelp.help(message, cmd);
         return;
     }
 
-    if (CommandsFile.commands.Guide.includes(msgl)) {
+    if (CommandsFile.commands.Guide.includes(cmd)) {
         ModGuide.guide(message, msg);
         return;
     }
 
-    if (CommandsFile.commands.Info.includes(msgl)) {
+    if (CommandsFile.commands.Info.includes(cmd)) {
         ModInfo.info(message, msgl, cmd);
         return;
     }
 
-    if (CommandsFile.commands.Quote.includes(msgl)) {
+    if (CommandsFile.commands.Quote.includes(cmd)) {
         ModQuote.quote(message, msgl);
         return;
     }
 
-    if (CommandsFile.commands.Quote.includes(msgl)) {
+    if (CommandsFile.commands.Quote.includes(cmd)) {
         ModQuote.quote(message, msgl);
         return;
     }
 
-    if (message.channel.id == "266645102418591745" && CommandsFile.commands.Roles.includes(msgl)){
+    if (message.channel.id == "266645102418591745" && CommandsFile.commands.Roles.includes(cmd)){
         ModRoles.Roles(message,msgl,cmd);
         return;
     }
