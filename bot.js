@@ -72,6 +72,10 @@ UnityBot.on("message", function (message) {
         return;
     }
 
+    if (cmd == "weaboo"){
+        message.reply("Has declared himself to be a weaboo! and they are proud!");
+    }
+
     if (CommandsFile.commands.RoleID.includes(cmd) && message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360")) {
         ModRoleID.RoleID(message, msg);
         return;
