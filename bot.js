@@ -73,7 +73,7 @@ UnityBot.on("message", function (message) {
     }
 
     if (cmd == "nda") {
-        message.sendMessage("https://media.giphy.com/media/ETLCSY1EcYOti/giphy.gif");
+        message.channel.sendMessage("https://media.giphy.com/media/ETLCSY1EcYOti/giphy.gif");
     }
 
     if (cmd == "weaboo" || cmd == "weeb") {
