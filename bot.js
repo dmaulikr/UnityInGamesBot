@@ -46,9 +46,9 @@ UnityBot.on("message", function (message) {
         if (ComData.Intercept == "disabled") return;
         if (ComData.Bot == "disabled") return;
 
-        ModIntercept.intercept(message,ModRoles)
+        ModIntercept.intercept(message, ModRoles)
     }
-    
+
     if (!message.content.startsWith(ComData.Prefix)) return;
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
     msg = message.content.split(" ").slice(1).join(" ").trim();
@@ -72,7 +72,11 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (cmd == "weaboo" || cmd == "weeb"){
+    if (cmd == "nda") {
+        message.sendMessage("https://media.giphy.com/media/ETLCSY1EcYOti/giphy.gif");
+    }
+
+    if (cmd == "weaboo" || cmd == "weeb") {
         message.reply("Has declared himself to be a weaboo! and they are proud!");
         return;
     }
@@ -117,8 +121,8 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (message.channel.id == "266645102418591745" && CommandsFile.commands.Roles.includes(cmd)){
-        ModRoles.Roles(message,msgl,cmd);
+    if (message.channel.id == "266645102418591745" && CommandsFile.commands.Roles.includes(cmd)) {
+        ModRoles.Roles(message, msgl, cmd);
         return;
     }
 })
