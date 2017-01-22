@@ -6,9 +6,10 @@ Command | Arguement | Info | Status | Progress |
 --- | --- | --- | --- | --- |
 Help | NA | What the bot does in that channel | **Available** | WIP |
 Info | Class or Topic |Information on the for honor aspects | **Available** | Complete |
-Guide | Class or Topic |Get a link to a guide | **Available** | Complete |
+Guide | Class, Topic, Person |Get a link to a guide | **Available** | Complete |
 Quotes | Faction | Gives a themed quote | **Available** | Complete |
 Report | @Name | Report a user | **Unavailable** | DEV |
+Weeb | NA | Fun command || **Available** | Complete |
 
 ##Faction Channel
 Command | Arguement | Info | Status | Progress |
@@ -16,7 +17,7 @@ Command | Arguement | Info | Status | Progress |
 Faction | Faction name | Assign your faction | **Available** | Complete |
 Platform | Platform name | Assign your platform | **Available** | Complete |
 
-##Dev Commands
+##Mod Commands
 Command | Arguement | Info | Status | Progress |
 --- | --- | --- | --- | --- |
 roleID | Role Name |Get the ID of a role | **Locked** | Complete |
