@@ -43,6 +43,12 @@ Muted = [];
 
 UnityBot.on("message", function (message) {
 
+    if (Muted.includes(message.author.id)){
+        message.delete();
+        console.log("muted msg deleted");
+        return;
+    }
+
     if (message.author.bot) return;
 
     if (Muted.includes(message.author.id)) {
