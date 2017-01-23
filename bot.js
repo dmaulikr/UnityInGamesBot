@@ -108,14 +108,21 @@ UnityBot.on("message", function (message) {
 
     if (CommandsFile.commands.Mute.includes(cmd)) {
         mentioned = message.mentions.users.first();
-        if (msgl == "mute" || msgl == "silence"){
+        console.log("Mention Id:" + mentioned.id)
+        if (cmd == "mute" || cmd == "silence"){
+            console.log("silence")
             if (Muted.includes(mentioned.id)) return message.reply("That person has already been muted?");
-            Muted.push(mention.id);
+            console.log("adding to mute list")
+            Muted.push(mentioned.id);
+            console.log(Muted);
         }
-        if (msgl == "unmute"){
+        if (cmd == "unmute"){
+            console.log("unmuting")
             if (Muted.includes(mentioned.id)){
+                console.log("Removing from mute");
                 MutePos = Muted.indexOf(mentioned.id)
                 Muted.splice(MutePos, "1");
+                console.log(Muted);
             }
             else message.reply("That person isn't muted?");
         }
