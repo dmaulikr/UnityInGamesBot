@@ -108,6 +108,8 @@ UnityBot.on("message", function (message) {
 
     if (CommandsFile.commands.Mute.includes(cmd)) {
         mentioned = message.mentions.users.first();
+        if (mentioned == undefined) return console.reply("Could not find that person?");
+        if (mentioned == null) return message.reply("Unexpected outcome, mention = null?");
         console.log("Mention Id:" + mentioned.id)
         if (cmd == "mute" || cmd == "silence"){
             console.log("silence")
