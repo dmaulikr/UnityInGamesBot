@@ -87,10 +87,6 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (cmd == "nda") {
-        message.channel.sendMessage("https://media.giphy.com/media/ETLCSY1EcYOti/giphy.gif");
-    }
-
     if (cmd == "weaboo" || cmd == "weeb") {
         message.reply("Has declared himself to be a weaboo! and they are proud!");
         return;
@@ -108,7 +104,7 @@ UnityBot.on("message", function (message) {
 
     if (CommandsFile.commands.Mute.includes(cmd)) {
         mentioned = message.mentions.users.first();
-        if (mentioned == undefined) return console.reply("Could not find that person?");
+        if (mentioned == undefined) return message.reply("Could not find target?");
         if (mentioned == null) return message.reply("Unexpected outcome, mention = null?");
         console.log("Mention Id:" + mentioned.id)
         if (cmd == "mute" || cmd == "silence"){
