@@ -36,6 +36,11 @@
         "Roles":[
             "faction",
             "platform"
+        ],
+        "Mute":[
+            "mute",
+            "silence",
+            "unmute"
         ]
 
     }

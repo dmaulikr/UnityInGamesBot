@@ -30,6 +30,8 @@ console.log("-Commands: Quote");
 const ModQuote = require("./modules/Quote.js");
 console.log("-Commands: Roles");
 const ModRoles = require("./modules/Roles.js");
+console.log("-Commands: Roles");
+const ModMute = require("./modules/Mute.js");
 
 console.log("-bot: Loading Config: Commands")
 const ComData = require("./configure/commands.json");
@@ -37,10 +39,17 @@ const ComData = require("./configure/commands.json");
 console.log("-Bot: Loading Intercept");
 const ModIntercept = require("./modules/Intercept.js");
 
+Muted = [];
 
 UnityBot.on("message", function (message) {
 
     if (message.author.bot) return;
+
+    if (Muted.includes(message.author.id)) {
+        if (message.deletable) {
+            message.delete();
+        }
+    }
 
     if (message.content.startsWith(">")) {
         if (ComData.Intercept == "disabled") return;
@@ -89,6 +98,21 @@ UnityBot.on("message", function (message) {
     if (CommandsFile.commands.Nominate.includes(cmd)) {
         ModNominate.nominate(message);
         return;
+    }
+
+    if (CommandsFile.commands.Mute.includes(cmd)) {
+        mentioned = message.mentions.users.first();
+        if (msgl == "mute" || msgl == "silence"){
+            if (Muted.includes(mentioned.id)) return message.reply("That person has already been muted?");
+            Muted.push(mention.id);
+        }
+        if (msgl == "unmute"){
+            if (Muted.includes(mentioned.id)){
+                MutePos = Muted.indexOf(mentioned.id)
+                Muted.splice(MutePos, "1");
+            }
+            else message.reply("That person isn't muted?");
+        }
     }
 
     if (CommandsFile.commands.Discord.includes(cmd)) {

@@ -205,7 +205,7 @@ function info(message, msgl, cmd) {
             return;
         }
         if (["nobushi", "nobushis", "class nobushi", "class nobushis"].includes(msgl)) {
-            message.channel.sendMessage("__**Raider**__\n**Difficulty**: Hard\n**Fighting Style** Zone Control\nLongest Attack Range\nNobushi has the capability to revive allies swiftly and many other support feats.\n");
+            message.channel.sendMessage("__**Nobushi**__\n**Difficulty**: Hard\n**Fighting Style** Zone Control\nLongest Attack Range\nNobushi has the capability to revive allies swiftly and many other support feats.\n");
             return;
         }
         if (["valkyrie", "valkyries", "class valkyrie", "class valkyries"].includes(msgl)) {
