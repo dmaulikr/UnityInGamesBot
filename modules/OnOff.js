@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = {On, Off};
 
 function On(ComData,message) {

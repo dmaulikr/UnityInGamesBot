@@ -69,6 +69,7 @@ UnityBot.on("message", function (message) {
     msg = message.content.split(" ").slice(1).join(" ").trim();
     msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
     console.log(`cmd = ${cmd} msg = ${msg}`);
+    
     if (CommandsFile.commands.Activate.includes(cmd) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
         ModOnOff.On(ComData, message);
         return;
@@ -102,7 +103,7 @@ UnityBot.on("message", function (message) {
         return;
     }
 
-    if (CommandsFile.commands.Mute.includes(cmd)) {
+    if (CommandsFile.commands.Mute.includes(cmd) && (message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
         mentioned = message.mentions.users.first();
         if (mentioned == undefined) return message.reply("Could not find target?");
         if (mentioned == null) return message.reply("Unexpected outcome, mention = null?");
