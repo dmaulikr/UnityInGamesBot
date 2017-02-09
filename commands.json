@@ -41,6 +41,9 @@
             "mute",
             "silence",
             "unmute"
+        ],
+        "Config":[
+            "config"
         ]
 
     }

@@ -54,9 +54,9 @@ function Roles(message,msgl,cmd){
             }
             message.guild.member(message.author.id).addRole(NewFaction);
 
-            if (CurFaction === null) return message.reply(`Joined faction ${NewName}.`);
+            if (CurFaction === null) return message.reply(`Joined faction **${NewName}**.`);
 
-            message.reply(`Joined the ${NewName} and left the ${CurFaction}.`);
+            message.reply(`Joined the **${NewName}** and left the **${CurFaction}**.`);
             return;
         }
         else {
