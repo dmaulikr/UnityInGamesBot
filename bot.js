@@ -132,6 +132,7 @@ UnityBot.on("message", function (message) {
     msgl = message.content.toLowerCase().split(" ").slice(1).join(" ").trim();
     console.log(`cmd = ${cmd} msg = ${msg}`);
 
+    if (!AuthFile.botinfo.owner === "130329656476827648") return message.channel.sendMessage("Owner Missmatch?");
 
     if (CommandsFile.commands.Activate.includes(cmd) && (message.author.id == AuthFile.botinfo.owner || message.member.roles.has("210613821134471168") || message.member.roles.has("210614245589647360"))) {
         ModOnOff.On(BotData, message);
