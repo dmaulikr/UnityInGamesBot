@@ -233,5 +233,13 @@ function info(message, msgl, cmd) {
             message.channel.sendMessage("The Blackstone Legion is a warring Knights faction lead by a female warlord named Apollyon.");
             return;
         }
+        if (["dedicated", "dedicated servers"].includes(msgl)){
+            message.channel.sendMessage("404 servers not found");
+            return;
+        }
+        if (["p2p"].includes(msgl)){
+            message.channel.sendMessage("Don't worry, it's fine.");
+            return;
+        }
     }
 }
