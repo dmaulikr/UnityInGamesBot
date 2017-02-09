@@ -1,1 +1,7 @@
-{"Prefix":"!","Intercept":"enabled","Commands":[]}
+{
+    "Prefix": "!",
+    "Bot": "enabled",
+    "Intercept": "enabled",
+    "Commands":[
+    ]
+}

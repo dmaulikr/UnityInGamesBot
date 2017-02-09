@@ -25,12 +25,6 @@ function quote(message, msgl) {
         message.channel.sendMessage(QuoteList.QuoteBlackstone[RNumb]);
         return;
     }
-    if (msgl === "cosmic") {
-        let RNumb = Math.floor((Math.random() * QuoteList.QuoteCosmic.length));
-        if (RNumb === "3") return message.channel.sendMessage(QuoteList.QuoteCosmic[RNumb] + message.author.id);
-        message.channel.sendMessage(QuoteList.QuoteCosmic[RNumb]);
-        return;
-    }
     if (msgl === "") {
         let RNumb = Math.floor((Math.random() * QuoteList.Quote.length));
         message.channel.sendMessage(QuoteList.Quote[RNumb]);

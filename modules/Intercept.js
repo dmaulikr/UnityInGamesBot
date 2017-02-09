@@ -15,5 +15,4 @@ function intercept(message,ModRoles) {
         }
         if (cmd == "platform") return message.reply("That is one of my functions, use \"!platform\" instead");
     }
-    return;
 }
