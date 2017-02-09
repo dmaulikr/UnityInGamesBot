@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 var UnityBot = new Discord.Client();
 
 process.on("unhandledRejection", (err) => {
-    console.error(`Uncaught Promise Error: \n${err.stack}`);
+    console.error(`Holy Error Catch : Uncaught Promise Error: \n${err.stack}`);
 });
 
 const fs = require('fs');
@@ -62,6 +62,8 @@ UnityBot.on("message", function (message) {
     if (message.author.bot) return;
 
     //if (message.content.toLocaleLowerCase().split(" ").includes("sonic")) return message.delete();
+
+    if (!message.guild)return message.reply("If you need help with commands, please ask in the sever! my commands are disabled here.");
 
     cmd = message.content.toLowerCase().substring(1).split(" ")[0];
 

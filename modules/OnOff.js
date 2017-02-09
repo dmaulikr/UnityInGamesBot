@@ -16,6 +16,6 @@ function On(BotData, message) {
 
 function Off(BotData, message) {
     BotData.Bot = "disabled";
-    message.reply("Error 001 : Unauthorised use - Mods informed.");
+    message.reply("I will no longer accept any commands other than \"!activate\" and will no longer reply to any requests.\n**Disabled**");
     return;
 }
